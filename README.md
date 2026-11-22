@@ -6,6 +6,10 @@ Veikia „iPhone“ ir „Android“ telefonuose kaip įprasta programėlė. Ner
 
 > **Svarbu.** Programėlė yra skaičiuoklė ir žurnalas, o ne medicininė priemonė. Ji nepakeičia gydytojo, vaistininko ar vaisto lapelio nurodymų. Prieš duodami vaistą patikrinkite dozę, stiprumą ir intervalus pagal lapelį ar gydytojo rekomendacijas.
 
+## Programėlės vaizdas
+
+![Mobile](screenshots/app_mobile.jpg)
+
 ## Galimybės
 
 - Keli vaikai su vardu ir svoriu, tarp jų galima greitai persijungti.
