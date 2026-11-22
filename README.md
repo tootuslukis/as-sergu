@@ -8,7 +8,9 @@ Veikia „iPhone“ ir „Android“ telefonuose kaip įprasta programėlė. Ner
 
 ## Programėlės vaizdas
 
-![Mobile](screenshots/app_mobile.jpg)
+<p align="center">
+  <img src="screenshots/app_mobile.jpg" width="300">
+</p>
 
 ## Galimybės
 
