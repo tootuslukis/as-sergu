@@ -81,36 +81,6 @@ Pirmiausia atsidarykite programėlės nuorodą (gausite ją įkėlę failus, žr
 
 Kiekvieno telefono duomenys yra atskiri. Programėlė veikia ir be interneto, kai ji jau buvo atidaryta bent kartą.
 
-## Kaip patalpinti „GitHub Pages“ (nemokamai)
-
-Šiam sprendimui nereikia serverio. Tereikia statinių failų talpinimo, kurį nemokamai suteikia „GitHub Pages“.
-
-### Failai
-Saugykloje turi būti šie failai, visi pačiame šakniniame aplanke (ne poaplankyje):
-
-- `index.html` – pati programėlė
-- `manifest.webmanifest` – programėlės pavadinimas ir nustatymai
-- `sw.js` – leidžia veikti be interneto
-- `icon-180.png`, `icon-192.png`, `icon-512.png` – piktogramos
-- `README.md` – šis aprašymas
-
-### Žingsniai
-1. Prisijunkite prie [github.com](https://github.com) arba susikurkite nemokamą paskyrą.
-2. Viršuje dešinėje paspauskite **+** → **New repository**.
-3. **Repository name:** `as-sergu` (pavadinime negalima tarpų ir lietuviškų raidžių). Pasirinkite **Public** ir paspauskite **Create repository**.
-4. Paspauskite nuorodą **uploading an existing file**.
-5. Nuvilkite visus failus (ne zip archyvą ir ne aplanką) ir apačioje paspauskite **Commit changes**.
-6. Atidarykite **Settings** → **Pages**.
-7. Skiltyje **Build and deployment** pasirinkite **Source: Deploy from a branch**, **Branch: main**, aplankas **/ (root)** ir paspauskite **Save**.
-8. Po 1–3 minučių puslapio viršuje atsiras nuoroda:
-   `https://JUSU-VARDAS.github.io/as-sergu/`
-9. Šią nuorodą atsidarykite telefone ir įdiekite (žr. aukščiau). Tą pačią nuorodą galite siųsti draugams ir šeimai.
-
-Jei matote klaidą 404, palaukite kelias minutes ir perkraukite puslapį.
-
-### Atnaujinimas
-Saugykloje paspauskite **Add file** → **Upload files**, įkelkite naujus failus tais pačiais pavadinimais ir paspauskite **Commit changes**. Telefone programėlė atsinaujins po kito atidarymo (kartais prireikia ją uždaryti ir atidaryti iš naujo).
-
 ## Privatumas
 
 - Programėlė neturi serverio, paskyrų ir sekimo. Duomenys siunčiami niekur.
