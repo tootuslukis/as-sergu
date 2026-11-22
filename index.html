@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<title>Aš sergu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Aš sergu">
+<meta name="theme-color" content="#f4f6f8">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--tx:#14181f;--mu:#6b7380;--ln:#e6e9ee;--ac:#2f6df6;--ac2:#e8effe;--wr:#c2410c;--wb:#fff1e8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1318;--card:#181d24;--tx:#eef1f5;--mu:#98a1ae;--ln:#2a313b;--ac:#6b9bff;--ac2:#1d2a47;--wr:#fb923c;--wb:#33221a}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 -apple-system,"SF Pro Text","Inter",system-ui,Roboto,sans-serif}
+.wrap{max-width:520px;margin:0 auto;padding:14px 14px 40px}
+header{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.chips{display:flex;gap:8px;overflow-x:auto;flex:1;padding:2px}
+.chip{border:1px solid var(--ln);background:var(--card);color:var(--tx);border-radius:999px;padding:10px 16px;font:inherit;font-weight:600;white-space:nowrap}
+.chip.on{background:var(--ac);border-color:var(--ac);color:#fff}
+.icon{width:44px;height:44px;border-radius:50%;border:1px solid var(--ln);background:var(--card);color:var(--tx);font-size:20px;flex:none}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:16px;margin-bottom:12px}
+h3{margin:0;font-size:17px;font-weight:650}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.mu{color:var(--mu);font-size:14px}
+.who{display:flex;justify-content:space-between;align-items:baseline;margin:4px 2px 12px}
+.who b{font-size:22px}
+.dose{font-size:34px;font-weight:700;letter-spacing:-.02em;margin:10px 0 2px}
+.dose small{font-size:15px;font-weight:500;color:var(--mu);margin-left:6px;letter-spacing:0}
+.since{font-size:15px;margin-top:6px}
+.next{font-size:14px;color:var(--mu);margin-top:2px}
+.next.ok{color:#15803d}
+.cnt{font-size:13px;background:var(--ac2);color:var(--ac);border-radius:999px;padding:4px 10px;font-weight:600}
+.cnt.hi{background:var(--wb);color:var(--wr)}
+.btns{display:flex;gap:8px;margin-top:14px}
+button{font:inherit;cursor:pointer}
+.big{flex:1;background:var(--ac);color:#fff;border:0;border-radius:14px;padding:16px;font-weight:650;font-size:17px}
+.ghost{background:transparent;color:var(--ac);border:1px solid var(--ln);border-radius:14px;padding:16px 14px;font-weight:600}
+.link{background:none;border:0;color:var(--ac);padding:8px 0;font-weight:600}
+.danger{color:var(--wr)}
+input,select{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--ln);border-radius:12px;padding:12px;width:100%}
+label{display:block;font-size:13px;color:var(--mu);margin:10px 0 4px}
+.trow{display:flex;gap:8px;align-items:center;margin-top:12px}
+.trow input{width:110px;font-size:20px;font-weight:600;text-align:center}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tab{border:0;background:transparent;color:var(--mu);padding:6px 12px;border-radius:999px;font-weight:600}
+.tab.on{background:var(--ac2);color:var(--ac)}
+svg{width:100%;height:auto;display:block}
+.leg{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--mu);margin-top:6px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
+.h{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;border-top:1px solid var(--ln);padding:12px 0;color:var(--tx);text-align:left}
+.h:first-of-type{border-top:0}
+.empty{text-align:center;padding:26px 8px}
+.nx{margin-top:12px;padding:12px 14px;border-radius:14px;background:var(--ac2)}
+.nl{font-size:13px;color:var(--mu)}
+.nt{font-size:26px;font-weight:700;color:var(--ac);letter-spacing:-.01em}
+.bar{height:6px;background:var(--ln);border-radius:6px;margin:8px 0 6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ac);border-radius:6px}
+.nx.ok{background:rgba(21,128,61,.14)}
+.nx.ok .nt{color:#15803d;font-size:17px}
+.foot{font-size:12px;color:var(--mu);text-align:center;margin:18px 10px 0}
+.scrim{position:fixed;inset:0;background:rgba(10,14,20,.45);display:flex;align-items:flex-end;justify-content:center;z-index:20}
+.sheet{background:var(--card);width:100%;max-width:520px;max-height:90%;overflow:auto;border-radius:24px 24px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom,0px))}
+.sheet h3{margin-bottom:6px;font-size:19px}
+.fs{border:1px solid var(--ln);border-radius:16px;padding:6px 12px 12px;margin:12px 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.warn{background:var(--wb);color:var(--wr);border-radius:12px;padding:12px;margin:10px 0;font-size:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="chips" id="chips"></div>
+    <button class="icon" data-act="settings" aria-label="Vaistų nustatymai">⚙︎</button>
+  </header>
+  <div id="cards"></div>
+  <section class="card" id="tempcard">
+    <h3>Temperatūra</h3>
+    <div class="trow">
+      <input id="tv" type="text" inputmode="decimal" placeholder="36,6" aria-label="Temperatūra °C"><span class="mu">°C</span>
+      <button class="big" data-act="addTemp">Įrašyti</button>
+    </div>
+    <button class="link" data-act="tempAt">Įrašyti kitu laiku</button>
+    <div class="tabs" id="rng"></div>
+    <div id="chart"></div>
+  </section>
+  <section class="card"><h3>Istorija</h3><div id="hist"></div></section>
+  <p class="foot">Skaičiuoklė nepakeičia gydytojo ar vaisto lapelio nurodymų. <span id="sync">Duomenys saugomi tik šiame telefone. Atsarginę kopiją rasite nustatymuose (⚙︎).</span></p>
+</div>
+<div id="modal"></div>
+<script>
+const COL=['#2f6df6','#f59e0b','#10b981','#ec4899','#8b5cf6'];
+const uid=()=>Math.random().toString(36).slice(2,9);
+let S=null;
+try{S=JSON.parse(localStorage.getItem('vsek1'))}catch(e){}
+if(!S||!S.meds)S={children:[],sel:null,doses:[],temps:[],meds:[
+ {id:'m1',name:'Paracetamolis',mg:200,ml:5,perKg:15,minH:'',maxN:''},
+ {id:'m2',name:'Ibuprofenas',mg:200,ml:5,perKg:10,minH:'',maxN:''}]};
+let rangeH=24,pending=null;
+let ref=null,tmr=null;
+const pushDb=()=>{if(ref)ref.set({json:JSON.stringify(S),ts:S.ts||Date.now()}).catch(()=>{})};
+const save=()=>{S.ts=Date.now();try{localStorage.setItem('vsek1',JSON.stringify(S))}catch(e){}if(ref){clearTimeout(tmr);tmr=setTimeout(pushDb,600)}};
+async function initDb(){
+ try{
+  if(!window.claude||!claude.use)return;
+  const db=await claude.use('db'),user=await claude.use('user');
+  if(!db||!user)return;
+  const id=await user.id();if(!id)return;
+  ref=db.collection('data/users/'+id).doc('state');
+  const snap=await ref.get();
+  if(snap.exists){let r=null;try{r=JSON.parse(snap.data().json)}catch(e){}
+   if(r&&r.meds&&(r.ts||0)>=(S.ts||0)){S=r;try{localStorage.setItem('vsek1',JSON.stringify(S))}catch(e){}}
+   else if(r)pushDb();}
+  else if(S.children.length)pushDb();
+  const sy=document.getElementById('sync');if(sy)sy.textContent='Duomenys saugomi jūsų paskyroje ir išlieka perkrovus telefoną.';
+  if(!S.sel&&S.children[0])S.sel=S.children[0].id;
+  render();
+ }catch(e){}
+}
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const num=v=>parseFloat(String(v).replace(',','.'));
+const fmt=(n,d=3)=>parseFloat(n.toFixed(d)).toString().replace('.',',');
+const cur=()=>S.children.find(c=>c.id===S.sel)||S.children[0]||null;
+const pad=n=>String(n).padStart(2,'0');
+function fT(t){const d=new Date(t),n=new Date();const h=pad(d.getHours())+':'+pad(d.getMinutes());
+ return d.toDateString()===n.toDateString()?h:d.getDate()+'.'+pad(d.getMonth()+1)+' '+h}
+function dur(ms){const m=Math.max(0,Math.floor(ms/6e4));const h=Math.floor(m/60),mm=m%60;
+ if(h===0)return mm+' min';return h+' val.'+(mm?' '+mm+' min':'')}
+const loc=t=>{const d=new Date(t-new Date(t).getTimezoneOffset()*6e4);return d.toISOString().slice(0,16)};
+function calc(c,m){const mg=c.weight*m.perKg;return{mg,ml:mg/m.mg*m.ml}}
+const dosesOf=(c,m)=>S.doses.filter(d=>d.child===c.id&&d.med===m.id).sort((a,b)=>b.t-a.t);
+
+function renderChips(){
+ $('#chips').innerHTML=S.children.map(c=>`<button class="chip ${cur()&&c.id===cur().id?'on':''}" data-act="pick" data-id="${c.id}">${esc(c.name)}</button>`).join('')+
+ `<button class="chip" data-act="addChild">+ Vaikas</button>`;
+}
+function renderCards(){
+ const c=cur(),el=$('#cards');
+ if(!c){el.innerHTML=`<div class="card empty"><h3>Pridėkite vaiką</h3><p class="mu">Įveskite vardą ir svorį, o dozės bus apskaičiuotos automatiškai.</p><div class="btns"><button class="big" data-act="addChild">Pridėti vaiką</button></div></div>`;return}
+ const now=Date.now();
+ let h=`<div class="who"><b>${esc(c.name)}</b><button class="link" data-act="editChild">${fmt(c.weight,2)} kg · keisti</button></div>`;
+ h+=S.meds.map((m,i)=>{
+  const ds=dosesOf(c,m),last=ds[0],d=calc(c,m),n24=ds.filter(x=>now-x.t<864e5).length;
+  const minMs=num(m.minH)>0?num(m.minH)*36e5:0,maxN=num(m.maxN)>0?num(m.maxN):0;
+  let next='';
+  const ds24=ds.filter(x=>now-x.t<864e5);
+  const at=Math.max(last&&minMs?last.t+minMs:0,maxN&&ds24.length>=maxN?ds24[maxN-1].t+864e5:0);
+  if(at>now){const tot=minMs||864e5,pc=Math.min(100,Math.max(0,(1-(at-now)/tot)*100));next=`<div class="nx"><div class="nl">Kitą dozę galima duoti už</div><div class="nt">${dur(at-now)}</div><div class="bar"><i style="width:${pc}%"></i></div><div class="mu">galima nuo ${fT(at)}</div></div>`}
+  else if(last&&(minMs||maxN))next=`<div class="nx ok"><div class="nt">Kitą dozę jau galima duoti</div></div>`;
+  else if(!minMs&&!maxN)next=`<button class="link" data-act="settings">Nustatykite min. intervalą, kad matytumėte laiką iki kitos dozės</button>`;
+  return `<div class="card"><div class="row"><h3><span class="dot" style="background:${COL[i%5]}"></span>${esc(m.name)}</h3>
+   <span class="cnt ${maxN&&n24>=maxN?'hi':''}">${n24}${maxN?' / '+maxN:''} per 24 val.</span></div>
+   <div class="dose">${fmt(d.ml)} ml<small>${fmt(d.mg,1)} mg</small></div>
+   <div class="since">${last?`Paskutinį kartą: prieš ${dur(now-last.t)} (${fT(last.t)})`:'Dar neduota'}</div>${next}
+   <div class="btns"><button class="big" data-act="take" data-m="${m.id}">Išgerta</button><button class="ghost" data-act="takeAt" data-m="${m.id}">Kitu laiku</button></div></div>`}).join('');
+ el.innerHTML=h;
+}
+function renderChart(){
+ $('#rng').innerHTML=[[24,'24 val.'],[72,'3 d.'],[168,'7 d.']].map(([v,l])=>`<button class="tab ${rangeH===v?'on':''}" data-act="range" data-v="${v}">${l}</button>`).join('');
+ const c=cur(),el=$('#chart');if(!c){el.innerHTML='';return}
+ const now=Date.now(),t0=now-rangeH*36e5;
+ const pts=S.temps.filter(x=>x.child===c.id&&x.t>=t0).sort((a,b)=>a.t-b.t);
+ if(!pts.length){el.innerHTML='<p class="mu" style="text-align:center;padding:16px 0">Šiuo laikotarpiu įrašų nėra.</p>';return}
+ const W=360,H=210,pl=30,pr=10,pt=10,pb=40;
+ const vs=pts.map(p=>p.v);const lo=Math.floor(Math.min(36,Math.min(...vs)-.3)),hi=Math.ceil(Math.max(39,Math.max(...vs)+.3));
+ const x=t=>pl+(t-t0)/(now-t0)*(W-pl-pr),y=v=>pt+(hi-v)/(hi-lo)*(H-pt-pb);
+ let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Temperatūros grafikas">`;
+ for(let g=lo;g<=hi;g++)s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(g)}" y2="${y(g)}" stroke="var(--ln)"/><text x="${pl-6}" y="${y(g)+4}" font-size="10" text-anchor="end" fill="var(--mu)">${g}</text>`;
+ s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(38)}" y2="${y(38)}" stroke="var(--wr)" stroke-dasharray="4 4" opacity=".6"/>`;
+ for(let k=0;k<=3;k++){const t=t0+(now-t0)*k/3,d=new Date(t);
+  s+=`<text x="${x(t)}" y="${H-6}" font-size="10" text-anchor="${k===0?'start':k===3?'end':'middle'}" fill="var(--mu)">${rangeH>24?d.getDate()+'.'+pad(d.getMonth()+1)+' ':''}${pad(d.getHours())}:${pad(d.getMinutes())}</text>`}
+ S.meds.forEach((m,i)=>S.doses.filter(d=>d.child===c.id&&d.med===m.id&&d.t>=t0).forEach(d=>{
+  s+=`<line x1="${x(d.t)}" x2="${x(d.t)}" y1="${pt}" y2="${H-pb+8}" stroke="${COL[i%5]}" opacity=".25"/><circle cx="${x(d.t)}" cy="${H-pb+14}" r="5" fill="${COL[i%5]}"/>`}));
+ s+=`<polyline fill="none" stroke="var(--tx)" stroke-width="2" stroke-linejoin="round" points="${pts.map(p=>x(p.t)+','+y(p.v)).join(' ')}"/>`;
+ pts.forEach(p=>s+=`<circle cx="${x(p.t)}" cy="${y(p.v)}" r="4" fill="${p.v>=38?'var(--wr)':'var(--tx)'}"/>`);
+ s+='</svg><div class="leg">'+S.meds.map((m,i)=>`<span><span class="dot" style="background:${COL[i%5]}"></span>${esc(m.name)}</span>`).join('')+'</div>';
+ el.innerHTML=s;
+}
+function renderHist(){
+ const c=cur(),el=$('#hist');if(!c){el.innerHTML='';return}
+ const ev=[];
+ S.doses.filter(d=>d.child===c.id).forEach(d=>{const i=S.meds.findIndex(m=>m.id===d.med);if(i<0)return;const m=S.meds[i];ev.push({t:d.t,k:'d',id:d.id,col:COL[i%5],txt:`${esc(m.name)} · ${fmt(calc(c,m).ml)} ml`})});
+ S.temps.filter(x=>x.child===c.id).forEach(x=>ev.push({t:x.t,k:'t',id:x.id,col:x.v>=38?'var(--wr)':'var(--tx)',txt:`Temperatūra ${fmt(x.v,1)} °C`}));
+ ev.sort((a,b)=>b.t-a.t);
+ el.innerHTML=ev.length?ev.slice(0,40).map(e=>`<button class="h" data-act="edit" data-k="${e.k}" data-id="${e.id}"><span><span class="dot" style="background:${e.col}"></span>${e.txt}</span><span class="mu">${fT(e.t)}</span></button>`).join(''):'<p class="mu">Įrašų dar nėra.</p>';
+}
+function render(){renderChips();renderCards();renderChart();renderHist()}
+
+/* sheets */
+function sheet(html){$('#modal').innerHTML=`<div class="scrim" data-act="close"><div class="sheet" role="dialog">${html}</div></div>`}
+function closeSheet(){$('#modal').innerHTML='';pending=null}
+function ask(msg,yes,cb){pending=cb;sheet(`<h3>Patvirtinkite</h3><div class="warn">${msg}</div><div class="btns"><button class="ghost" data-act="close">Atšaukti</button><button class="big" data-act="yes">${yes}</button></div>`)}
+function addDose(cid,mid,t){S.doses.push({id:uid(),child:cid,med:mid,t});save();closeSheet();render()}
+function tryDose(mid,t){
+ const c=cur(),m=S.meds.find(x=>x.id===mid);if(!c||!m)return;
+ const ds=dosesOf(c,m),msgs=[],minMs=num(m.minH)>0?num(m.minH)*36e5:0,maxN=num(m.maxN)>0?num(m.maxN):0;
+ const prev=ds.filter(x=>x.t<=t)[0];
+ if(minMs&&prev&&t-prev.t<minMs)msgs.push(`nuo praėjusios dozės praėjo tik ${dur(t-prev.t)}, o minimalus intervalas ${fmt(minMs/36e5,2)} val.`);
+ if(maxN&&ds.filter(x=>t-x.t>=0&&t-x.t<864e5).length>=maxN)msgs.push(`per 24 val. jau duota ${maxN} ${maxN===1?'dozė':'dozių'} (riba pasiekta)`);
+ if(msgs.length)ask(`Dėmesio: ${msgs.join('; ')}. Ar vis tiek įrašyti?`,'Įrašyti vis tiek',()=>addDose(c.id,mid,t));
+ else addDose(c.id,mid,t);
+}
+function childSheet(c){
+ sheet(`<h3>${c?'Vaiko duomenys':'Naujas vaikas'}</h3><label>Vardas</label><input id="cn" value="${esc(c?.name||'')}">
+ <label>Svoris, kg</label><input id="cw" inputmode="decimal" value="${c?fmt(c.weight,2):''}" placeholder="17">
+ <div class="btns"><button class="ghost" data-act="close">Atšaukti</button><button class="big" data-act="saveChild" data-id="${c?c.id:''}">Išsaugoti</button></div>
+ ${c?'<button class="link danger" data-act="delChild">Ištrinti vaiką ir jo įrašus</button>':''}`);
+}
+function medsSheet(){
+ sheet(`<h3>Vaistų nustatymai</h3><p class="mu">Intervalą ir paros ribą nurodykite pagal vaisto lapelį ar gydytojo rekomendacijas. Palikus tuščią, įspėjimų nebus.</p>`+
+ S.meds.map((m,i)=>`<div class="fs" data-i="${i}"><label>Pavadinimas</label><input data-k="name" value="${esc(m.name)}">
+ <div class="g2"><div><label>Stiprumas, mg</label><input data-k="mg" inputmode="decimal" value="${fmt(+m.mg)}"></div><div><label>per ml</label><input data-k="ml" inputmode="decimal" value="${fmt(+m.ml)}"></div>
+ <div><label>Dozė, mg/kg</label><input data-k="perKg" inputmode="decimal" value="${fmt(+m.perKg)}"></div><div><label>Min. intervalas, val.</label><input data-k="minH" inputmode="decimal" value="${m.minH}"></div>
+ <div><label>Maks. dozių per 24 val.</label><input data-k="maxN" inputmode="numeric" value="${m.maxN}"></div></div>
+ <button class="link danger" data-act="delMed" data-i="${i}">Pašalinti vaistą</button></div>`).join('')+
+ `<button class="link" data-act="addMed">+ Pridėti vaistą</button><div class="g2"><button class="ghost" data-act="exp">Atsisiųsti kopiją</button><button class="ghost" data-act="imp">Įkelti kopiją</button></div><input id="impf" type="file" accept="application/json,.json" hidden><div class="btns"><button class="big" data-act="saveMeds">Išsaugoti</button></div>`);
+}
+function readMeds(){
+ document.querySelectorAll('.fs[data-i]').forEach(f=>{const m=S.meds[+f.dataset.i];if(!m)return;
+  f.querySelectorAll('input').forEach(i=>{const k=i.dataset.k;if(k==='name')m.name=i.value.trim()||'Vaistas';
+   else if(k==='minH'||k==='maxN'){const v=num(i.value);m[k]=v>0?v:''}
+   else{const v=num(i.value);if(v>0)m[k]=v}})});
+}
+function timeSheet(title,val,extra,okAct,data){
+ sheet(`<h3>${title}</h3>${extra||''}<label>Laikas</label><input id="tt" type="datetime-local" value="${loc(val)}">
+ <div class="btns"><button class="ghost" data-act="close">Atšaukti</button><button class="big" data-act="${okAct}" ${data||''}>Išsaugoti</button></div>`);
+}
+function note(m){const o=$('#err');if(o)o.remove();const b=document.querySelector('.sheet .btns');const tgt=b||$('#rng');if(!tgt)return;tgt.insertAdjacentHTML('beforebegin','<div class="warn" id="err">'+esc(m)+'</div>');if(!b)setTimeout(()=>{const e=$('#err');if(e)e.remove()},4000)}
+const A={
+ close(){closeSheet()},
+ yes(){const f=pending;pending=null;f&&f()},
+ pick(el){S.sel=el.dataset.id;save();render()},
+ range(el){rangeH=+el.dataset.v;renderChart()},
+ addChild(){childSheet(null)},
+ editChild(){childSheet(cur())},
+ saveChild(el){
+  const n=$('#cn').value.trim(),w=num($('#cw').value);
+  if(!n||!(w>0)){note('Įveskite vardą ir svorį kilogramais, pvz., 17 arba 17,5.');return}
+  if(el.dataset.id){const c=S.children.find(x=>x.id===el.dataset.id);c.name=n;c.weight=w}
+  else{const c={id:uid(),name:n,weight:w};S.children.push(c);S.sel=c.id}
+  save();closeSheet();render();
+ },
+ delChild(){const c=cur();ask(`Ištrinti „${esc(c.name)}“ ir visus jo įrašus?`,'Ištrinti',()=>{
+  S.children=S.children.filter(x=>x.id!==c.id);S.doses=S.doses.filter(d=>d.child!==c.id);S.temps=S.temps.filter(t=>t.child!==c.id);S.sel=S.children[0]?.id||null;save();closeSheet();render()})},
+ take(el){tryDose(el.dataset.m,Date.now())},
+ takeAt(el){timeSheet('Kada išgerta?',Date.now()-36e5/2,'','takeAtOk',`data-m="${el.dataset.m}"`)},
+ takeAtOk(el){const t=new Date($('#tt').value).getTime();if(isNaN(t))return;closeSheet();tryDose(el.dataset.m,t)},
+ addTemp(){const v=num($('#tv').value),c=cur();if(!c||!(v>30&&v<45)){note('Įveskite temperatūrą, pvz., 37,8');return}
+  S.temps.push({id:uid(),child:c.id,t:Date.now(),v});save();$('#tv').value='';render()},
+ tempAt(){const c=cur();if(!c)return;const v=num($('#tv').value);
+  timeSheet('Temperatūra kitu laiku',Date.now(),`<label>Temperatūra, °C</label><input id="tw" inputmode="decimal" value="${v>0?fmt(v,1):''}" placeholder="37,8">`,'tempAtOk')},
+ tempAtOk(){const v=num($('#tw').value),t=new Date($('#tt').value).getTime(),c=cur();
+  if(!(v>30&&v<45)||isNaN(t)){note('Patikrinkite temperatūrą ir laiką.');return}
+  S.temps.push({id:uid(),child:c.id,t,v});save();$('#tv').value='';closeSheet();render()},
+ edit(el){
+  const k=el.dataset.k,id=el.dataset.id;
+  if(k==='d'){const d=S.doses.find(x=>x.id===id);const m=S.meds.find(x=>x.id===d.med);
+   timeSheet(esc(m?m.name:'Dozė'),d.t,'','editOk',`data-k="d" data-id="${id}"`);}
+  else{const x=S.temps.find(q=>q.id===id);
+   timeSheet('Temperatūra',x.t,`<label>Temperatūra, °C</label><input id="tw" inputmode="decimal" value="${fmt(x.v,1)}">`,'editOk',`data-k="t" data-id="${id}"`)}
+  $('.sheet .btns').insertAdjacentHTML('afterend',`<button class="link danger" data-act="del" data-k="${k}" data-id="${id}">Ištrinti įrašą</button>`);
+ },
+ editOk(el){const t=new Date($('#tt').value).getTime();if(isNaN(t))return;
+  if(el.dataset.k==='d')S.doses.find(x=>x.id===el.dataset.id).t=t;
+  else{const v=num($('#tw').value);if(!(v>30&&v<45)){note('Patikrinkite temperatūrą.');return}const x=S.temps.find(q=>q.id===el.dataset.id);x.t=t;x.v=v}
+  save();closeSheet();render()},
+ del(el){if(el.dataset.k==='d')S.doses=S.doses.filter(x=>x.id!==el.dataset.id);else S.temps=S.temps.filter(x=>x.id!==el.dataset.id);save();closeSheet();render()},
+ settings(){medsSheet()},
+ addMed(){readMeds();S.meds.push({id:uid(),name:'Naujas vaistas',mg:200,ml:5,perKg:10,minH:'',maxN:''});medsSheet()},
+ delMed(el){readMeds();const m=S.meds[+el.dataset.i];ask(`Pašalinti „${esc(m.name)}“? Jo įrašai istorijoje nebebus rodomi.`,'Pašalinti',()=>{S.meds.splice(+el.dataset.i,1);save();medsSheet();render()})},
+ saveMeds(){readMeds();save();closeSheet();render()}
+};
+A.exp=()=>{const b=new Blob([JSON.stringify(S)],{type:'application/json'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='vaistu-sekiklis-'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000)};
+A.imp=()=>{$('#impf').click()};
+document.addEventListener('change',e=>{if(e.target.id!=='impf'||!e.target.files[0])return;const fr=new FileReader();
+ fr.onload=()=>{let r=null;try{r=JSON.parse(fr.result)}catch(x){}
+  if(!r||!Array.isArray(r.children)||!Array.isArray(r.meds)){note('Tai ne šios programėlės kopija.');return}
+  ask('Visi dabartiniai duomenys bus pakeisti kopijos duomenimis.','Pakeisti',()=>{S=r;if(!S.sel&&S.children[0])S.sel=S.children[0].id;save();closeSheet();render()})};
+ fr.readAsText(e.target.files[0])});
+if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0)navigator.serviceWorker.register('sw.js').catch(()=>{});
+document.addEventListener('click',e=>{const el=e.target.closest('[data-act]');if(!el)return;
+ if(el.dataset.act==='close'&&e.target!==el&&!e.target.closest('button'))return;
+ const f=A[el.dataset.act];if(f){try{f(el)}catch(err){note('Klaida: '+err.message)}}});
+document.addEventListener('mousedown',e=>{if(e.target.closest('.sheet button'))e.preventDefault()});
+if(!S.sel&&S.children[0])S.sel=S.children[0].id;
+render();
+initDb();
+setInterval(renderCards,10000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});
+</script>
+</body>
+</html>
