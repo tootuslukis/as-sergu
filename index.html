@@ -133,8 +133,8 @@ const uid=()=>Math.random().toString(36).slice(2,9);
 let S=null;
 try{S=JSON.parse(localStorage.getItem('vsek1'))}catch(e){}
 if(!S||!S.meds)S={children:[],sel:null,doses:[],temps:[],meds:[
- {id:'m1',name:'Paracetamolis',mg:200,ml:5,perKg:15,minH:'',maxN:''},
- {id:'m2',name:'Ibuprofenas',mg:200,ml:5,perKg:10,minH:'',maxN:''}]};
+ {id:'m1',name:'Paracetamolis',mg:24,ml:1,perKg:15,minH:'6',maxN:'4'},
+ {id:'m2',name:'Ibuprofenas',mg:200,ml:5,perKg:10,minH:'8',maxN:'3'}]};
 let rangeH=24,pending=null;
 let ref=null,tmr=null;
 const pushDb=()=>{if(ref)ref.set({json:JSON.stringify(S),ts:S.ts||Date.now()}).catch(()=>{})};
