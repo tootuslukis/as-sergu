@@ -7,6 +7,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Aš sergu">
 <meta name="theme-color" content="#f4f6f8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="icon" href="icon-192.png">
@@ -36,6 +39,15 @@ h3{margin:0;font-size:17px;font-weight:650}
 .next.ok{color:#15803d}
 .cnt{font-size:13px;background:var(--ac2);color:var(--ac);border-radius:999px;padding:4px 10px;font-weight:600}
 .cnt.hi{background:var(--wb);color:var(--wr)}
+.mid{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:4px}
+.info{min-width:0}
+.dose small{display:block;margin:2px 0 0}
+.orb{position:relative;flex:none;width:128px;height:128px;border-radius:50%;border:0;padding:0;background:linear-gradient(135deg,var(--c) 45%,var(--c2));box-shadow:-9px 12px 22px var(--g);color:#1b2330;font-weight:700;font-size:18px;transition:transform .12s}
+.orb::before{content:"";position:absolute;inset:9%;border-radius:50%;background:linear-gradient(145deg,#fff 25%,#d6dae0);box-shadow:inset 0 0 0 2px rgba(255,255,255,.95),1px 3px 6px rgba(0,0,0,.2)}
+.orb span{position:relative}
+.orb:active{transform:scale(.94)}
+.orb.sm{width:78px;height:78px;font-size:14px;box-shadow:-6px 8px 16px var(--g)}
+.trow .orb{margin-left:auto}
 .btns{display:flex;gap:8px;margin-top:14px}
 button{font:inherit;cursor:pointer}
 .big{flex:1;background:var(--ac);color:#fff;border:0;border-radius:14px;padding:16px;font-weight:650;font-size:17px}
@@ -69,6 +81,29 @@ svg{width:100%;height:auto;display:block}
 .fs{border:1px solid var(--ln);border-radius:16px;padding:6px 12px 12px;margin:12px 0}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .warn{background:var(--wb);color:var(--wr);border-radius:12px;padding:12px;margin:10px 0;font-size:15px}
+button,.chip,.big,.ghost,.link,.tab,.orb,.icon{font-family:"Poppins",system-ui,-apple-system,sans-serif}
+.orb{font-weight:800;letter-spacing:.01em}
+.orb{background:radial-gradient(circle at 50% 36%,var(--c) 55%,var(--c2));box-shadow:0 12px 20px var(--g),inset 0 3px 5px rgba(255,255,255,.5),inset 0 -5px 9px rgba(0,0,0,.14);color:var(--t,#fff);font-weight:700;font-size:17px;letter-spacing:.04em;text-transform:uppercase;line-height:1.1}
+.orb::before{inset:7%;background:none;box-shadow:none;border:2px solid rgba(255,255,255,.45)}
+.orb::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 30% 24%,rgba(255,255,255,.42),transparent 52%);pointer-events:none}
+.orb span{position:relative;z-index:1}
+.orb.sm{font-size:12px;box-shadow:0 8px 14px var(--g),inset 0 2px 4px rgba(255,255,255,.5),inset 0 -4px 7px rgba(0,0,0,.14)}
+.orb{width:166px;height:84px;border-radius:999px;font-size:22px;letter-spacing:.05em;margin-bottom:8px;background:linear-gradient(180deg,var(--c) 0%,var(--c) 48%,var(--c2) 150%);box-shadow:0 7px 0 var(--c2),0 16px 22px var(--g),inset 0 3px 4px rgba(255,255,255,.55),inset 0 -6px 10px rgba(0,0,0,.12)}
+.orb::before{inset:5px;border-radius:999px;border:2px solid rgba(255,255,255,.35)}
+.orb::after{inset:7px 16px 48% 16px;border-radius:999px;background:linear-gradient(rgba(255,255,255,.55),rgba(255,255,255,.04))}
+.orb:active{transform:translateY(5px);box-shadow:0 2px 0 var(--c2),0 6px 10px var(--g),inset 0 3px 4px rgba(255,255,255,.55),inset 0 -6px 10px rgba(0,0,0,.12)}
+.orb.sm{width:110px;height:54px;font-size:15px;margin-bottom:5px;box-shadow:0 5px 0 var(--c2),0 10px 14px var(--g),inset 0 2px 3px rgba(255,255,255,.55),inset 0 -4px 7px rgba(0,0,0,.12)}
+.orb.sm::before{inset:4px}
+.orb.sm::after{inset:5px 12px 48% 12px}
+.orb.sm:active{transform:translateY(3px);box-shadow:0 2px 0 var(--c2),0 4px 8px var(--g)}
+.dose{font-size:30px}
+.orb.none{--c:#fff;--c2:#d3d8df;--t:#1b2330;--g:rgba(20,30,50,.14);background:linear-gradient(180deg,#fff 0%,#fff 50%,#eceff3 150%);box-shadow:0 7px 0 var(--c2),0 16px 22px var(--g),inset 0 -6px 10px rgba(0,0,0,.05),0 0 0 1px rgba(20,30,50,.06)}
+.orb.none::before{border-color:rgba(20,30,50,.07)}
+.orb.none::after{background:linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,0))}
+.orb.sm.none{box-shadow:0 5px 0 var(--c2),0 10px 14px var(--g),inset 0 -4px 7px rgba(0,0,0,.05),0 0 0 1px rgba(20,30,50,.06)}
+.orb.ok{--c:#5aaae6;--c2:#2f80c4;--t:#fff;--g:#5aaae673}
+.orb.wait{--c:#ff5a50;--c2:#d92f26;--t:#fff;--g:#ff5a5073}
+.orb.none:active{box-shadow:0 2px 0 var(--c2),0 6px 10px var(--g),0 0 0 1px rgba(20,30,50,.06)}
 </style>
 </head>
 <body>
@@ -82,7 +117,7 @@ svg{width:100%;height:auto;display:block}
     <h3>Temperatūra</h3>
     <div class="trow">
       <input id="tv" type="text" inputmode="decimal" placeholder="36,6" aria-label="Temperatūra °C"><span class="mu">°C</span>
-      <button class="big" data-act="addTemp">Įrašyti</button>
+      <button class="orb sm ok" data-act="addTemp"><span>Įrašyti</span></button>
     </div>
     <button class="link" data-act="tempAt">Įrašyti kitu laiku</button>
     <div class="tabs" id="rng"></div>
@@ -93,7 +128,7 @@ svg{width:100%;height:auto;display:block}
 </div>
 <div id="modal"></div>
 <script>
-const COL=['#2f6df6','#f59e0b','#10b981','#ec4899','#8b5cf6'];
+const COL=['#6fdcae','#5aaae6','#ffb02e','#ff6b8a','#8b5cf6'],COL2=['#3fb585','#2f80c4','#e08a00','#e0405f','#6d3fd8'],COLT=['#0a3023','#fff','#2b1a00','#fff','#fff'];
 const uid=()=>Math.random().toString(36).slice(2,9);
 let S=null;
 try{S=JSON.parse(localStorage.getItem('vsek1'))}catch(e){}
@@ -153,11 +188,13 @@ function renderCards(){
   if(at>now){const tot=minMs||864e5,pc=Math.min(100,Math.max(0,(1-(at-now)/tot)*100));next=`<div class="nx"><div class="nl">Kitą dozę galima duoti už</div><div class="nt">${dur(at-now)}</div><div class="bar"><i style="width:${pc}%"></i></div><div class="mu">galima nuo ${fT(at)}</div></div>`}
   else if(last&&(minMs||maxN))next=`<div class="nx ok"><div class="nt">Kitą dozę jau galima duoti</div></div>`;
   else if(!minMs&&!maxN)next=`<button class="link" data-act="settings">Nustatykite min. intervalą, kad matytumėte laiką iki kitos dozės</button>`;
+  const st=at>now?'wait':'ok';
   return `<div class="card"><div class="row"><h3><span class="dot" style="background:${COL[i%5]}"></span>${esc(m.name)}</h3>
    <span class="cnt ${maxN&&n24>=maxN?'hi':''}">${n24}${maxN?' / '+maxN:''} per 24 val.</span></div>
-   <div class="dose">${fmt(d.ml)} ml<small>${fmt(d.mg,1)} mg</small></div>
-   <div class="since">${last?`Paskutinį kartą: prieš ${dur(now-last.t)} (${fT(last.t)})`:'Dar neduota'}</div>${next}
-   <div class="btns"><button class="big" data-act="take" data-m="${m.id}">Išgerta</button><button class="ghost" data-act="takeAt" data-m="${m.id}">Kitu laiku</button></div></div>`}).join('');
+   <div class="mid"><div class="info"><div class="dose">${fmt(d.ml)} ml<small>${fmt(d.mg,1)} mg</small></div>
+   <div class="since">${last?`Paskutinį kartą: prieš ${dur(now-last.t)} (${fT(last.t)})`:'Dar neduota'}</div></div>
+   <button class="orb ${st}" data-act="take" data-m="${m.id}" aria-label="Išgerta: ${esc(m.name)}"><span>Išgerta</span></button></div>${next}
+   <button class="link" data-act="takeAt" data-m="${m.id}">Įrašyti kitu laiku</button></div>`}).join('');
  el.innerHTML=h;
 }
 function renderChart(){
