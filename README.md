@@ -4,13 +4,9 @@ Paprasta, šviesi programėlė tėvams: ji apskaičiuoja vaikui skirtą vaisto d
 
 Veikia „iPhone“ ir „Android“ telefonuose kaip įprasta programėlė. Nereikia paskyros, diegimo iš „App Store“ ar „Google Play“. Visi duomenys saugomi tik jūsų telefone.
 
+**Atidaryti programėlę:** [https://tootuslukis.github.io/as-sergu/](https://tootuslukis.github.io/as-sergu/)
+
 > **Svarbu.** Programėlė yra skaičiuoklė ir žurnalas, o ne medicininė priemonė. Ji nepakeičia gydytojo, vaistininko ar vaisto lapelio nurodymų. Prieš duodami vaistą patikrinkite dozę, stiprumą ir intervalus pagal lapelį ar gydytojo rekomendacijas.
-
-## Programėlės vaizdas
-
-<p align="center">
-  <img src="screenshots/app_mobile.jpg" width="300">
-</p>
 
 ## Galimybės
 
@@ -22,7 +18,7 @@ Veikia „iPhone“ ir „Android“ telefonuose kaip įprasta programėlė. Ner
 - Kiek dozių duota per paskutines 24 val. (slenkančios 24 val.).
 - Įspėjimas, jei vaistas duodamas per anksti arba viršijama paros riba.
 - Įrašų pridėjimas kitu laiku, laiko keitimas ir įrašų trynimas.
-- Temperatūros grafikas (24 val., 3 d., 7 d.) su pažymėtais vaistų išgėrimo momentais.
+- Temperatūros grafikas (24 val., 3 d., 7 d.) su pažymėtais vaistų išgėrimo momentais, normos (36,5 °C) ir 38 °C linijomis bei lengvu spalvotu fonu.
 - Duomenų atsarginė kopija ir atkūrimas.
 
 ## Kaip naudotis
@@ -74,7 +70,30 @@ Kaip veikia mygtukai:
 - Kortelėje matote paskutinės dozės laiką, likusį laiką iki kitos galimos dozės ir dozių skaičių per 24 val.
 
 ### 5. Temperatūra
-Įveskite temperatūrą ir paspauskite **ĮRAŠYTI**. Jei matavote anksčiau, pasirinkite **Įrašyti kitu laiku**. Grafike spalvoti taškai apačioje rodo, kada buvo duoti vaistai. Punktyrinė linija žymi 38 °C.
+Įveskite temperatūrą ir paspauskite **ĮRAŠYTI**. Jei matavote anksčiau, pasirinkite **Įrašyti kitu laiku**. Grafike spalvoti taškai apačioje rodo, kada buvo duoti vaistai.
+
+Grafiko fonas padeda greitai įvertinti reikšmę:
+
+| Fonas | Temperatūra |
+| --- | --- |
+| Šviesiai žalsvas | žemiau 37,0 °C |
+| Šviesiai gelsvas | nuo 37,0 iki 38,0 °C |
+| Šviesiai rausvas | virš 38,0 °C |
+
+Žalia punktyrinė linija žymi įprastą normą (36,5 °C), raudonoji punktyrinė linija žymi 38 °C.
+
+### Kaip skaičiuojamas laikas iki kitos dozės
+Programėlė apskaičiuoja dvi datas ir rodo **vėlesnę**:
+
+1. **Pagal intervalą:** paskutinės dozės laikas + minimalus intervalas.
+2. **Pagal paros ribą:** jei per paskutines 24 val. jau duotas didžiausias leistinas dozių skaičius, laukiama, kol seniausia dozė iš tos „slenkančios paros“ iškris iš 24 val. lango (jos laikas + 24 val.).
+
+Todėl rodomas laukimo laikas gali būti ilgesnis už nustatytą intervalą. Pavyzdys: intervalas 6 val., riba 3 dozės per 24 val. Dozės buvo 02:36, 12:23 ir 18:57. Pagal intervalą kitą dozę galima duoti 00:57, bet riba pasiekta, todėl programėlė rodo laiką, kai iškris seniausia dozė, t. y. kitos paros 02:36.
+
+Svarbu žinoti:
+- Intervalas ir riba skaitomi iš **dabartinių nustatymų**, o ne iš to, kas galiojo duodant dozę. Pakeitus intervalą, laikas iškart perskaičiuojamas pagal visas dozes.
+- Skaičiuojamos tik paskutinės 24 val. Dozė, kuri buvo prieš daugiau nei 24 val., į ribą nebeįskaičiuojama.
+- Eilutė „galima nuo …“ rodo tikslų laiką, kada mygtukas taps mėlynas.
 
 ### 6. Istorija ir taisymas
 Apačioje matomi visi įrašai. Paspaudę įrašą galite pakeisti jo laiką (ar temperatūrą) arba jį ištrinti.
@@ -83,6 +102,8 @@ Apačioje matomi visi įrašai. Paspaudę įrašą galite pakeisti jo laiką (ar
 Nustatymuose (⚙︎) yra mygtukai **Atsisiųsti kopiją** ir **Įkelti kopiją**. Naudokite juos prieš keisdami telefoną, valydami naršyklės duomenis ar norėdami perduoti duomenis kitam telefonui (pvz., žmonai ar vyrui). Kopijos failą galima išsiųsti žinute ar el. paštu. Įkėlus kopiją, dabartiniai duomenys pakeičiami.
 
 ## Įdiegimas telefone
+
+Atidarykite programėlę adresu [https://tootuslukis.github.io/as-sergu/](https://tootuslukis.github.io/as-sergu/) ir atlikite žemiau aprašytus veiksmus.
 
 **„iPhone“ (būtinai „Safari“ naršyklėje)**
 1. Paspauskite **Bendrinti** (kvadratas su rodykle).
