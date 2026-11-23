@@ -2,17 +2,17 @@
 
 Paprasta, šviesi programėlė tėvams: ji apskaičiuoja vaikui skirtą vaisto dozę pagal svorį, rodo, kada vaistas buvo duotas paskutinį kartą ir kada jau galima duoti kitą dozę, bei leidžia sekti temperatūrą.
 
-## Programėlės vaizdas
-
-<p align="center">
-  <img src="screenshots/app_mobile.jpg" width="300">
-</p>
-
 Veikia „iPhone“ ir „Android“ telefonuose kaip įprasta programėlė. Nereikia paskyros, diegimo iš „App Store“ ar „Google Play“. Visi duomenys saugomi tik jūsų telefone.
 
 **Atidaryti programėlę:** [https://tootuslukis.github.io/as-sergu/](https://tootuslukis.github.io/as-sergu/)
 
 > **Svarbu.** Programėlė yra skaičiuoklė ir žurnalas, o ne medicininė priemonė. Ji nepakeičia gydytojo, vaistininko ar vaisto lapelio nurodymų. Prieš duodami vaistą patikrinkite dozę, stiprumą ir intervalus pagal lapelį ar gydytojo rekomendacijas.
+
+## Programėlės vaizdas
+
+<p align="center">
+  <img src="screenshots/app_mobile.jpg" width="300">
+</p>
 
 ## Galimybės
 
@@ -24,7 +24,7 @@ Veikia „iPhone“ ir „Android“ telefonuose kaip įprasta programėlė. Ner
 - Kiek dozių duota per paskutines 24 val. (slenkančios 24 val.).
 - Įspėjimas, jei vaistas duodamas per anksti arba viršijama paros riba.
 - Įrašų pridėjimas kitu laiku, laiko keitimas ir įrašų trynimas.
-- Temperatūros grafikas (24 val., 3 d., 7 d.) su pažymėtais vaistų išgėrimo momentais, normos (36,5 °C) ir 38 °C linijomis bei lengvu spalvotu fonu.
+- Temperatūros grafikas (3 val., 6 val., 24 val., 3 d., 7 d.) su pažymėtais vaistų išgėrimo momentais, normos (36,5 °C) ir 38 °C linijomis bei lengvu spalvotu fonu.
 - Duomenų atsarginė kopija ir atkūrimas.
 
 ## Kaip naudotis

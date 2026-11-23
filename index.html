@@ -104,6 +104,7 @@ button,.chip,.big,.ghost,.link,.tab,.orb,.icon{font-family:"Poppins",system-ui,-
 .orb.ok{--c:#5aaae6;--c2:#2f80c4;--t:#fff;--g:#5aaae673}
 .orb.wait{--c:#ff5a50;--c2:#d92f26;--t:#fff;--g:#ff5a5073}
 .orb.none:active{box-shadow:0 2px 0 var(--c2),0 6px 10px var(--g),0 0 0 1px rgba(20,30,50,.06)}
+.tab{padding:6px 9px;font-size:14px}
 </style>
 </head>
 <body>
@@ -198,7 +199,7 @@ function renderCards(){
  el.innerHTML=h;
 }
 function renderChart(){
- $('#rng').innerHTML=[[24,'24 val.'],[72,'3 d.'],[168,'7 d.']].map(([v,l])=>`<button class="tab ${rangeH===v?'on':''}" data-act="range" data-v="${v}">${l}</button>`).join('');
+ $('#rng').innerHTML=[[3,'3 val.'],[6,'6 val.'],[24,'24 val.'],[72,'3 d.'],[168,'7 d.']].map(([v,l])=>`<button class="tab ${rangeH===v?'on':''}" data-act="range" data-v="${v}">${l}</button>`).join('');
  const c=cur(),el=$('#chart');if(!c){el.innerHTML='';return}
  const now=Date.now(),t0=now-rangeH*36e5;
  const pts=S.temps.filter(x=>x.child===c.id&&x.t>=t0).sort((a,b)=>a.t-b.t);
@@ -208,7 +209,7 @@ function renderChart(){
  const x=t=>pl+(t-t0)/(now-t0)*(W-pl-pr),y=v=>pt+(hi-v)/(hi-lo)*(H-pt-pb);
  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Temperatūros grafikas">`;
  const band=(a,b,c)=>{const t=Math.max(a,lo),u=Math.min(b,hi);return u>t?`<rect x="${pl}" y="${y(u)}" width="${W-pl-pr}" height="${y(t)-y(u)}" fill="${c}"/>`:''};
- s+=band(-99,37,'rgba(52,199,89,.10)')+band(37,38,'rgba(250,204,21,.13)')+band(38,99,'rgba(255,90,80,.10)');
+ s+=band(-99,37,'rgba(52,199,89,.05)')+band(37,38,'rgba(250,204,21,.065)')+band(38,99,'rgba(255,90,80,.05)');
  for(let g=lo;g<=hi;g++)s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(g)}" y2="${y(g)}" stroke="var(--ln)"/><text x="${pl-6}" y="${y(g)+4}" font-size="10" text-anchor="end" fill="var(--mu)">${g}</text>`;
  s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(38)}" y2="${y(38)}" stroke="var(--wr)" stroke-dasharray="4 4" opacity=".6"/>`;
  s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(36.5)}" y2="${y(36.5)}" stroke="#2fb36b" stroke-dasharray="4 4" opacity=".75"/><text x="${pl-6}" y="${y(36.5)+3}" font-size="9" text-anchor="end" fill="#2fb36b">36,5</text>`;
