@@ -133,8 +133,8 @@ const uid=()=>Math.random().toString(36).slice(2,9);
 let S=null;
 try{S=JSON.parse(localStorage.getItem('vsek1'))}catch(e){}
 if(!S||!S.meds)S={children:[],sel:null,doses:[],temps:[],meds:[
- {id:'m1',name:'Paracetamolis',mg:24,ml:1,perKg:15,minH:'6',maxN:'4'},
- {id:'m2',name:'Ibuprofenas',mg:200,ml:5,perKg:10,minH:'8',maxN:'3'}]};
+ {id:'m1',name:'Paracetamolis',mg:200,ml:5,perKg:15,minH:'',maxN:''},
+ {id:'m2',name:'Ibuprofenas',mg:200,ml:5,perKg:10,minH:'',maxN:''}]};
 let rangeH=24,pending=null;
 let ref=null,tmr=null;
 const pushDb=()=>{if(ref)ref.set({json:JSON.stringify(S),ts:S.ts||Date.now()}).catch(()=>{})};
@@ -207,8 +207,11 @@ function renderChart(){
  const vs=pts.map(p=>p.v);const lo=Math.floor(Math.min(36,Math.min(...vs)-.3)),hi=Math.ceil(Math.max(39,Math.max(...vs)+.3));
  const x=t=>pl+(t-t0)/(now-t0)*(W-pl-pr),y=v=>pt+(hi-v)/(hi-lo)*(H-pt-pb);
  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Temperatūros grafikas">`;
+ const band=(a,b,c)=>{const t=Math.max(a,lo),u=Math.min(b,hi);return u>t?`<rect x="${pl}" y="${y(u)}" width="${W-pl-pr}" height="${y(t)-y(u)}" fill="${c}"/>`:''};
+ s+=band(-99,37,'rgba(52,199,89,.10)')+band(37,38,'rgba(250,204,21,.13)')+band(38,99,'rgba(255,90,80,.10)');
  for(let g=lo;g<=hi;g++)s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(g)}" y2="${y(g)}" stroke="var(--ln)"/><text x="${pl-6}" y="${y(g)+4}" font-size="10" text-anchor="end" fill="var(--mu)">${g}</text>`;
  s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(38)}" y2="${y(38)}" stroke="var(--wr)" stroke-dasharray="4 4" opacity=".6"/>`;
+ s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(36.5)}" y2="${y(36.5)}" stroke="#2fb36b" stroke-dasharray="4 4" opacity=".75"/><text x="${pl-6}" y="${y(36.5)+3}" font-size="9" text-anchor="end" fill="#2fb36b">36,5</text>`;
  for(let k=0;k<=3;k++){const t=t0+(now-t0)*k/3,d=new Date(t);
   s+=`<text x="${x(t)}" y="${H-6}" font-size="10" text-anchor="${k===0?'start':k===3?'end':'middle'}" fill="var(--mu)">${rangeH>24?d.getDate()+'.'+pad(d.getMonth()+1)+' ':''}${pad(d.getHours())}:${pad(d.getMinutes())}</text>`}
  S.meds.forEach((m,i)=>S.doses.filter(d=>d.child===c.id&&d.med===m.id&&d.t>=t0).forEach(d=>{
