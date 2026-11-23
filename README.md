@@ -2,6 +2,12 @@
 
 Paprasta, šviesi programėlė tėvams: ji apskaičiuoja vaikui skirtą vaisto dozę pagal svorį, rodo, kada vaistas buvo duotas paskutinį kartą ir kada jau galima duoti kitą dozę, bei leidžia sekti temperatūrą.
 
+## Programėlės vaizdas
+
+<p align="center">
+  <img src="screenshots/app_mobile.jpg" width="300">
+</p>
+
 Veikia „iPhone“ ir „Android“ telefonuose kaip įprasta programėlė. Nereikia paskyros, diegimo iš „App Store“ ar „Google Play“. Visi duomenys saugomi tik jūsų telefone.
 
 **Atidaryti programėlę:** [https://tootuslukis.github.io/as-sergu/](https://tootuslukis.github.io/as-sergu/)
