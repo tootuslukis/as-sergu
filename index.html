@@ -110,6 +110,7 @@ button,.chip,.big,.ghost,.link,.tab,.orb,.icon{font-family:"Poppins",system-ui,-
 .icon{font-weight:700}
 .sheet p.alert{margin-top:16px;padding:12px 14px;border-radius:12px;background:rgba(220,38,38,.10);border:1.5px solid rgba(220,38,38,.55);color:#b91c1c;font-weight:700;font-size:15px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sheet p.alert{color:#ff8f87;background:rgba(248,113,113,.14);border-color:rgba(248,113,113,.6)}}
+.sheet ol{margin:4px 0 0;padding-left:20px;font-size:15px;line-height:1.45}
 </style>
 </head>
 <body>
@@ -329,7 +330,17 @@ A.help=()=>sheet(`<h3>Instrukcija</h3>
 <h4>4. Laikas iki kitos dozės</h4><p>Programėlė rodo vėlesnę iš dviejų datų: paskutinė dozė + intervalas arba laikas, kada pagal paros ribą atsilaisvins vieta (seniausia dozė iš paskutinių 24 val. + 24 val.). Todėl laukimas gali būti ilgesnis nei intervalas. Skaičiuojama pagal dabartinius nustatymus, o „galima nuo …“ rodo tikslų laiką.</p>
 <h4>5. Temperatūra</h4><p>Įveskite temperatūrą ir paspauskite „ĮRAŠYTI“ (arba „Įrašyti kitu laiku“). Grafiką galima rodyti 3 val., 6 val., 24 val., 3 d. ar 7 d. Žalia punktyrinė linija žymi 36,5 °C, raudona 38 °C. Fonas: žalsvas iki 37,0, gelsvas 37,0–38,0, rausvas virš 38,0. Spalvoti taškai apačioje rodo vaistų išgėrimo momentus.</p>
 <h4>6. Istorija</h4><p>Paspaudę įrašą galite pakeisti jo laiką (ar temperatūrą) arba jį ištrinti.</p>
-<h4>7. Atsarginė kopija</h4><p>Nustatymuose (⚙︎) yra „Atsisiųsti kopiją“ ir „Įkelti kopiją“. Naudokite juos prieš keisdami telefoną ar valydami naršyklės duomenis. Duomenys saugomi tik šiame telefone.</p>
+<h4>7. Atsarginė kopija</h4><p>Duomenys saugomi tik šiame telefone, todėl kopiją verta daryti reguliariai ir prieš keičiant telefoną ar valant naršyklės duomenis.</p>
+<p style="margin-top:8px"><b>Kaip sukurti kopiją:</b></p>
+<ol><li>Viršuje paspauskite ⚙︎.</li><li>Apačioje paspauskite „Atsisiųsti kopiją“.</li><li>Telefonas išsaugos failą (pavadinimas prasideda „vaistu-sekiklis-“, galūnė .json) arba pasiūlys, kur jį išsaugoti, pvz., „Failai“ programoje. Failą galite nusiųsti sau el. paštu ar žinute.</li></ol>
+<p style="margin-top:8px"><b>Kaip įkelti kopiją:</b></p>
+<ol><li>Naujame telefone ar po duomenų praradimo atidarykite programėlę ir paspauskite ⚙︎.</li><li>Paspauskite „Įkelti kopiją“ ir pasirinkite išsaugotą .json failą.</li><li>Patvirtinkite. Dabartiniai duomenys bus pakeisti kopijos duomenimis.</li></ol>
+<h4>8. Įdiegimas telefone</h4>
+<p><b>„iPhone“ („Safari“ naršyklėje):</b></p>
+<ol><li>Atidarykite programėlės nuorodą „Safari“ (ne kitoje naršyklėje).</li><li>Paspauskite „Bendrinti“ (kvadratas su rodykle).</li><li>Slinkite sąrašu žemyn ir pasirinkite „Pridėti prie pradžios ekrano“.</li><li>Paspauskite „Pridėti“.</li></ol>
+<p style="margin-top:8px"><b>„Android“ („Chrome“ naršyklėje):</b></p>
+<ol><li>Atidarykite programėlės nuorodą „Chrome“.</li><li>Paspauskite trijų taškų meniu (⋮).</li><li>Pasirinkite „Įdiegti programėlę“ (arba „Pridėti prie pagrindinio ekrano“).</li><li>Patvirtinkite.</li></ol>
+<p style="margin-top:8px">Vėliau programėlę atidarykite iš pradžios ekrano piktogramos. Atidarius per naršyklę ir per piktogramą, duomenys gali būti atskiri, todėl naudokite vieną būdą.</p>
 <p class="alert">Programėlė yra skaičiuoklė ir žurnalas, ji nepakeičia gydytojo ar vaisto lapelio nurodymų. Skubiu atveju skambinkite 112.</p>
 <div class="btns"><button class="big" data-act="close">Supratau</button></div>`);
 A.exp=()=>{const b=new Blob([JSON.stringify(S)],{type:'application/json'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='vaistu-sekiklis-'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000)};
