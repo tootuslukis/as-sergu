@@ -108,6 +108,8 @@ button,.chip,.big,.ghost,.link,.tab,.orb,.icon{font-family:"Poppins",system-ui,-
 .sheet h4{margin:14px 0 4px;font-size:15px}
 .sheet p{margin:0;font-size:15px;line-height:1.45}
 .icon{font-weight:700}
+.sheet p.alert{margin-top:16px;padding:12px 14px;border-radius:12px;background:rgba(220,38,38,.10);border:1.5px solid rgba(220,38,38,.55);color:#b91c1c;font-weight:700;font-size:15px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sheet p.alert{color:#ff8f87;background:rgba(248,113,113,.14);border-color:rgba(248,113,113,.6)}}
 </style>
 </head>
 <body>
@@ -328,7 +330,7 @@ A.help=()=>sheet(`<h3>Instrukcija</h3>
 <h4>5. Temperatūra</h4><p>Įveskite temperatūrą ir paspauskite „ĮRAŠYTI“ (arba „Įrašyti kitu laiku“). Grafiką galima rodyti 3 val., 6 val., 24 val., 3 d. ar 7 d. Žalia punktyrinė linija žymi 36,5 °C, raudona 38 °C. Fonas: žalsvas iki 37,0, gelsvas 37,0–38,0, rausvas virš 38,0. Spalvoti taškai apačioje rodo vaistų išgėrimo momentus.</p>
 <h4>6. Istorija</h4><p>Paspaudę įrašą galite pakeisti jo laiką (ar temperatūrą) arba jį ištrinti.</p>
 <h4>7. Atsarginė kopija</h4><p>Nustatymuose (⚙︎) yra „Atsisiųsti kopiją“ ir „Įkelti kopiją“. Naudokite juos prieš keisdami telefoną ar valydami naršyklės duomenis. Duomenys saugomi tik šiame telefone.</p>
-<p class="mu" style="margin-top:14px">Programėlė yra skaičiuoklė ir žurnalas, ji nepakeičia gydytojo ar vaisto lapelio nurodymų. Skubiu atveju skambinkite 112.</p>
+<p class="alert">Programėlė yra skaičiuoklė ir žurnalas, ji nepakeičia gydytojo ar vaisto lapelio nurodymų. Skubiu atveju skambinkite 112.</p>
 <div class="btns"><button class="big" data-act="close">Supratau</button></div>`);
 A.exp=()=>{const b=new Blob([JSON.stringify(S)],{type:'application/json'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='vaistu-sekiklis-'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000)};
 A.imp=()=>{$('#impf').click()};

@@ -6,6 +6,10 @@ Veikia „iPhone“ ir „Android“ telefonuose kaip įprasta programėlė. Ner
 
 **Atidaryti programėlę:** [https://tootuslukis.github.io/as-sergu/](https://tootuslukis.github.io/as-sergu/)
 
+<p align="center">
+  <img src="screenshots/app_mobile.jpg" alt="Programėlės „Aš sergu“ vaizdas telefone" width="320">
+</p>
+
 > **Svarbu.** Programėlė yra skaičiuoklė ir žurnalas, o ne medicininė priemonė. Ji nepakeičia gydytojo, vaistininko ar vaisto lapelio nurodymų. Prieš duodami vaistą patikrinkite dozę, stiprumą ir intervalus pagal lapelį ar gydytojo rekomendacijas.
 
 ## Galimybės
