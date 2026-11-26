@@ -15,7 +15,7 @@ Veikia „iPhone“ ir „Android“ telefonuose kaip įprasta programėlė. Ner
 ## Galimybės
 
 - Keli vaikai su vardu ir svoriu, tarp jų galima greitai persijungti.
-- Kiekvienam vaistui apskaičiuojama dozė (ml ir mg) pagal svorį.
+- Kiekvienam vaistui apskaičiuojama dozė (ml ir mg) pagal svorį, o kortelėje rodomas nustatytas vaisto stiprumas (pvz., 200 mg / 5 ml), kad galėtumėte patikrinti, ar jis sutampa su buteliuku.
 - Didelis kapsulės formos mygtukas „IŠGERTA“, kuris pats keičia spalvą: **raudonas**, kol dar negalima duoti kitos dozės, ir **mėlynas**, kai jau galima.
 - Mygtukas „Išgerta“ išsaugo laiką, o kortelėje matyti, kiek laiko praėjo nuo paskutinės dozės.
 - Likęs laikas iki kitos galimos dozės su eigos juosta.

@@ -200,6 +200,7 @@ function renderCards(){
   return `<div class="card"><div class="row"><h3><span class="dot" style="background:${COL[i%5]}"></span>${esc(m.name)}</h3>
    <span class="cnt ${maxN&&n24>=maxN?'hi':''}">${n24}${maxN?' / '+maxN:''} per 24 val.</span></div>
    <div class="mid"><div class="info"><div class="dose">${fmt(d.ml)} ml<small>${fmt(d.mg,1)} mg</small></div>
+   <div class="mu" style="font-size:12px;margin-top:2px">Stiprumas: ${fmt(+m.mg)} mg / ${fmt(+m.ml)} ml</div>
    <div class="since">${last?`Paskutinį kartą: prieš ${dur(now-last.t)} (${fT(last.t)})`:'Dar neduota'}</div></div>
    <button class="orb ${st}" data-act="take" data-m="${m.id}" aria-label="Išgerta: ${esc(m.name)}"><span>Išgerta</span></button></div>${next}
    <button class="link" data-act="takeAt" data-m="${m.id}">Įrašyti kitu laiku</button></div>`}).join('');
@@ -325,7 +326,7 @@ const A={
 };
 A.help=()=>sheet(`<h3>Instrukcija</h3>
 <h4>1. Pradžia</h4><p>Paspauskite „+ Vaikas“ ir įveskite vardą bei svorį (kg). Dozė apskaičiuojama automatiškai: svoris × mg/kg, perskaičiuota į ml pagal vaisto stiprumą. Vaikus galima keisti viršuje.</p>
-<h4>2. Vaistų nustatymai (⚙︎)</h4><p>Kiekvienam vaistui nurodykite pavadinimą, stiprumą (pvz., 200 mg per 5 ml) ir mg/kg. Taip pat įveskite minimalų intervalą (val.) ir maksimalų dozių skaičių per 24 val. pagal vaisto lapelį ar gydytojo nurodymus. Kol jų nėra, laiko iki kitos dozės ir įspėjimų nerodoma.</p>
+<h4>2. Vaistų nustatymai (⚙︎)</h4><p>Kiekvienam vaistui nurodykite pavadinimą, stiprumą (pvz., 200 mg per 5 ml) ir mg/kg. Taip pat įveskite minimalų intervalą (val.) ir maksimalų dozių skaičių per 24 val. pagal vaisto lapelį ar gydytojo nurodymus. Kol jų nėra, laiko iki kitos dozės ir įspėjimų nerodoma. Nustatytas stiprumas rodomas kortelėje po doze, kad galėtumėte patikrinti, ar jis sutampa su jūsų buteliuko.</p>
 <h4>3. Mygtukas IŠGERTA</h4><p>Paspaudus išsaugomas dabartinis laikas. Jei vaistas buvo duotas anksčiau, pasirinkite „Įrašyti kitu laiku“. Mygtukas <b>mėlynas</b>, kai kitą dozę jau galima duoti, ir <b>raudonas</b>, kol dar negalima. Raudoną paspausti galima, bet programėlė paprašys patvirtinimo.</p>
 <h4>4. Laikas iki kitos dozės</h4><p>Programėlė rodo vėlesnę iš dviejų datų: paskutinė dozė + intervalas arba laikas, kada pagal paros ribą atsilaisvins vieta (seniausia dozė iš paskutinių 24 val. + 24 val.). Todėl laukimas gali būti ilgesnis nei intervalas. Skaičiuojama pagal dabartinius nustatymus, o „galima nuo …“ rodo tikslų laiką.</p>
 <h4>5. Temperatūra</h4><p>Įveskite temperatūrą ir paspauskite „ĮRAŠYTI“ (arba „Įrašyti kitu laiku“). Grafiką galima rodyti 3 val., 6 val., 24 val., 3 d. ar 7 d. Žalia punktyrinė linija žymi 36,5 °C, raudona 38 °C. Fonas: žalsvas iki 37,0, gelsvas 37,0–38,0, rausvas virš 38,0. Spalvoti taškai apačioje rodo vaistų išgėrimo momentus.</p>
