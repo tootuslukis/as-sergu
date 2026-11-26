@@ -105,12 +105,16 @@ button,.chip,.big,.ghost,.link,.tab,.orb,.icon{font-family:"Poppins",system-ui,-
 .orb.wait{--c:#ff5a50;--c2:#d92f26;--t:#fff;--g:#ff5a5073}
 .orb.none:active{box-shadow:0 2px 0 var(--c2),0 6px 10px var(--g),0 0 0 1px rgba(20,30,50,.06)}
 .tab{padding:6px 9px;font-size:14px}
+.sheet h4{margin:14px 0 4px;font-size:15px}
+.sheet p{margin:0;font-size:15px;line-height:1.45}
+.icon{font-weight:700}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <div class="chips" id="chips"></div>
+    <button class="icon" data-act="help" aria-label="Instrukcija">?</button>
     <button class="icon" data-act="settings" aria-label="Vaistų nustatymai">⚙︎</button>
   </header>
   <div id="cards"></div>
@@ -316,6 +320,16 @@ const A={
  delMed(el){readMeds();const m=S.meds[+el.dataset.i];ask(`Pašalinti „${esc(m.name)}“? Jo įrašai istorijoje nebebus rodomi.`,'Pašalinti',()=>{S.meds.splice(+el.dataset.i,1);save();medsSheet();render()})},
  saveMeds(){readMeds();save();closeSheet();render()}
 };
+A.help=()=>sheet(`<h3>Instrukcija</h3>
+<h4>1. Pradžia</h4><p>Paspauskite „+ Vaikas“ ir įveskite vardą bei svorį (kg). Dozė apskaičiuojama automatiškai: svoris × mg/kg, perskaičiuota į ml pagal vaisto stiprumą. Vaikus galima keisti viršuje.</p>
+<h4>2. Vaistų nustatymai (⚙︎)</h4><p>Kiekvienam vaistui nurodykite pavadinimą, stiprumą (pvz., 200 mg per 5 ml) ir mg/kg. Taip pat įveskite minimalų intervalą (val.) ir maksimalų dozių skaičių per 24 val. pagal vaisto lapelį ar gydytojo nurodymus. Kol jų nėra, laiko iki kitos dozės ir įspėjimų nerodoma.</p>
+<h4>3. Mygtukas IŠGERTA</h4><p>Paspaudus išsaugomas dabartinis laikas. Jei vaistas buvo duotas anksčiau, pasirinkite „Įrašyti kitu laiku“. Mygtukas <b>mėlynas</b>, kai kitą dozę jau galima duoti, ir <b>raudonas</b>, kol dar negalima. Raudoną paspausti galima, bet programėlė paprašys patvirtinimo.</p>
+<h4>4. Laikas iki kitos dozės</h4><p>Programėlė rodo vėlesnę iš dviejų datų: paskutinė dozė + intervalas arba laikas, kada pagal paros ribą atsilaisvins vieta (seniausia dozė iš paskutinių 24 val. + 24 val.). Todėl laukimas gali būti ilgesnis nei intervalas. Skaičiuojama pagal dabartinius nustatymus, o „galima nuo …“ rodo tikslų laiką.</p>
+<h4>5. Temperatūra</h4><p>Įveskite temperatūrą ir paspauskite „ĮRAŠYTI“ (arba „Įrašyti kitu laiku“). Grafiką galima rodyti 3 val., 6 val., 24 val., 3 d. ar 7 d. Žalia punktyrinė linija žymi 36,5 °C, raudona 38 °C. Fonas: žalsvas iki 37,0, gelsvas 37,0–38,0, rausvas virš 38,0. Spalvoti taškai apačioje rodo vaistų išgėrimo momentus.</p>
+<h4>6. Istorija</h4><p>Paspaudę įrašą galite pakeisti jo laiką (ar temperatūrą) arba jį ištrinti.</p>
+<h4>7. Atsarginė kopija</h4><p>Nustatymuose (⚙︎) yra „Atsisiųsti kopiją“ ir „Įkelti kopiją“. Naudokite juos prieš keisdami telefoną ar valydami naršyklės duomenis. Duomenys saugomi tik šiame telefone.</p>
+<p class="mu" style="margin-top:14px">Programėlė yra skaičiuoklė ir žurnalas, ji nepakeičia gydytojo ar vaisto lapelio nurodymų. Skubiu atveju skambinkite 112.</p>
+<div class="btns"><button class="big" data-act="close">Supratau</button></div>`);
 A.exp=()=>{const b=new Blob([JSON.stringify(S)],{type:'application/json'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='vaistu-sekiklis-'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000)};
 A.imp=()=>{$('#impf').click()};
 document.addEventListener('change',e=>{if(e.target.id!=='impf'||!e.target.files[0])return;const fr=new FileReader();

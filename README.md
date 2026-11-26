@@ -8,12 +8,6 @@ Veikia „iPhone“ ir „Android“ telefonuose kaip įprasta programėlė. Ner
 
 > **Svarbu.** Programėlė yra skaičiuoklė ir žurnalas, o ne medicininė priemonė. Ji nepakeičia gydytojo, vaistininko ar vaisto lapelio nurodymų. Prieš duodami vaistą patikrinkite dozę, stiprumą ir intervalus pagal lapelį ar gydytojo rekomendacijas.
 
-## Programėlės vaizdas
-
-<p align="center">
-  <img src="screenshots/app_mobile.jpg" width="300">
-</p>
-
 ## Galimybės
 
 - Keli vaikai su vardu ir svoriu, tarp jų galima greitai persijungti.
@@ -25,6 +19,7 @@ Veikia „iPhone“ ir „Android“ telefonuose kaip įprasta programėlė. Ner
 - Įspėjimas, jei vaistas duodamas per anksti arba viršijama paros riba.
 - Įrašų pridėjimas kitu laiku, laiko keitimas ir įrašų trynimas.
 - Temperatūros grafikas (3 val., 6 val., 24 val., 3 d., 7 d.) su pažymėtais vaistų išgėrimo momentais, normos (36,5 °C) ir 38 °C linijomis bei lengvu spalvotu fonu.
+- Instrukcija pačioje programėlėje (mygtukas „?“ šalia nustatymų).
 - Duomenų atsarginė kopija ir atkūrimas.
 
 ## Kaip naudotis
